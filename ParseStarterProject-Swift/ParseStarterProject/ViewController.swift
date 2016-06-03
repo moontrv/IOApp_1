@@ -11,76 +11,117 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    @IBAction func createAlert(sender: AnyObject) {
+
+    var signupActive = true
+    
+    @IBOutlet var username: UITextField!
+    
+    @IBOutlet var password: UITextField!
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func displayAlert(title: String, message: String) {
+        
         if #available(iOS 8.0, *) {
-            var alert = UIAlertController(title: "Hey there", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+            var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction((UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                
                 self.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            self.presentViewController(alert, animated: true, completion:nil)
+                
+            })))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+
         } else {
             // Fallback on earlier versions
         }
     }
     
-    @IBAction func pause(sender: AnyObject) {
-        activityIndicator.startAnimating()
-        //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    @IBAction func signUp(sender: AnyObject) {
+        if username.text == "" || password.text == "" {
+            
+            displayAlert("Error in form", message: "Please enter a username and password")
+            
+        } else {
+            
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            var errorMessage = "Please try again later"
+            
+            if signupActive == true {
+                
+                var user = PFUser()
+                user.username = username.text
+                user.password = password.text
+                
+                
+                
+                user.signUpInBackgroundWithBlock({ (success, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    if error == nil {
+                        
+                        // Signup successful
+                        
+                        
+                        
+                    } else {
+                        
+                        if let errorString = error!.userInfo["error"] as? String {
+                            
+                            errorMessage = errorString
+                            
+                        }
+                        
+                        self.displayAlert("Failed SignUp", message: errorMessage)
+                        
+                    }
+                    
+                })
+                
+            } else {
+                
+                PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user, error) -> Void in
+                    
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    
+                    if user != nil {
+                        
+                        // Logged In!
+                        
+                    } else {
+                        
+                        if let errorString = error!.userInfo["error"] as? String {
+                            
+                            errorMessage = errorString
+                            
+                        }
+                        
+                        self.displayAlert("Failed Login", message: errorMessage)
+                        
+                    }
+                    
+                })
+                
+            }
+            
+        }
     }
-
-    @IBAction func restore(sender: AnyObject) {
-        activityIndicator.stopAnimating()
-        //UIApplication.sharedApplication().endIgnoringInteractionEvents()
-    }
-    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [NSObject: AnyObject]!) {
-        print("Image Selected")
-        self.dismissViewControllerAnimated(true, completion: nil)
-        importedImage.image = image
-        
+    @IBAction func logIn(sender: AnyObject) {
     }
-    
-    @IBOutlet var importedImage: UIImageView!
-    @IBAction func importImage(sender: AnyObject) {
-        var image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        image.allowsEditing = false
-        
-        self.presentViewController(image, animated: true, completion: nil)
-    }
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        /*var product = PFObject(className: "Products")
-        product["name"] = "Pizza"
-        product["description"] = "Deliciously cheesy"
-        product["price"] = 9.99
-        product.saveInBackgroundWithBlock { (success, error) in
-            if success == true{
-                print("Object saved with ID \(product.objectId)")
-            }else{
-                print("Failed")
-                print(error)
-            }
-        }*/
-        
-        /*var query = PFQuery(className: "Products")
-        query.getObjectInBackgroundWithId("Oa7AYiCZ6s") { (object: PFObject?, error:NSError?) in
-            if error != nil{
-                print(error)
-            }else if let product = object{
-                //print(object)
-                //print(object!.objectForKey("description"))
-                product["description"] = "Rocky Road"
-                product["price"] = 5.99
-                product.saveInBackground()
-            }
-        }*/
     }
 
     override func didReceiveMemoryWarning() {
