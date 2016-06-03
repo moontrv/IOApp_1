@@ -17,6 +17,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var username: UITextField!
     
     @IBOutlet var password: UITextField!
+    @IBOutlet var signupButton: UIButton!
+    @IBOutlet var registeredText: UILabel!
+    @IBOutlet var loginButton: UIButton!
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
@@ -118,6 +121,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func logIn(sender: AnyObject) {
+        if signupActive == true {
+            
+            signupButton.setTitle("Log In", forState: UIControlState.Normal)
+            
+            registeredText.text = "Not registered?"
+            
+            loginButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            
+            signupActive = false
+            
+        } else {
+            
+            signupButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            
+            registeredText.text = "Already registered?"
+            
+            loginButton.setTitle("Login", forState: UIControlState.Normal)
+            
+            signupActive = true
+            
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
