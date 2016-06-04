@@ -11,7 +11,7 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    // checking state of the signing - base on that change button text
     var signupActive = true
     
     @IBOutlet var username: UITextField!
@@ -99,7 +99,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     
                     if user != nil {
                         
-                        // Logged In!
+                        // Logged In!90
                         
                     } else {
                         
