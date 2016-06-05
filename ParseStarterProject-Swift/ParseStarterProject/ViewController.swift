@@ -73,9 +73,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     if error == nil {
                         
                         // Signup successful
+                        self.performSegueWithIdentifier("login", sender: self)
                         
-                        
-                        
+    
                     } else {
                         
                         if let errorString = error!.userInfo["error"] as? String {
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     if user != nil {
                         
                         // Logged In!90
-                        
+                        self.performSegueWithIdentifier("login", sender: self)
                     } else {
                         
                         if let errorString = error!.userInfo["error"] as? String {
