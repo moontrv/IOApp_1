@@ -157,7 +157,7 @@
         <!--Post Image-->
         <scene sceneID="S2c-i8-a6p">
             <objects>
-                <viewController title="Post Image" id="1O9-RC-nky" sceneMemberID="viewController">
+                <viewController title="Post Image" id="1O9-RC-nky" customClass="PostImageViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIU-T9-UEr"/>
                         <viewControllerLayoutGuide type="bottom" id="M2R-mF-rN2"/>
@@ -166,7 +166,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="0oJ-bU-Xgn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="0oJ-bU-Xgn">
                                 <rect key="frame" x="69" y="64" width="238" height="257"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="fLI-fy-f8O"/>
@@ -180,6 +180,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Choose An Image"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="1O9-RC-nky" eventType="touchUpInside" id="dBI-8V-OX3"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-Em-dw0">
                                 <rect key="frame" x="21" y="397" width="335" height="30"/>
@@ -199,6 +202,9 @@
                                 <state key="normal" title="Post Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postimage:" destination="1O9-RC-nky" eventType="touchUpInside" id="Tr1-BZ-AMR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,6 +222,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageToPost" destination="0oJ-bU-Xgn" id="x9j-yM-B0q"/>
+                        <outlet property="message" destination="cmr-Em-dw0" id="Q5x-cd-ljw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGa-6f-VJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
