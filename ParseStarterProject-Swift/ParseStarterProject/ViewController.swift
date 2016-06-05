@@ -101,6 +101,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                         
                         // Logged In!90
                         self.performSegueWithIdentifier("login", sender: self)
+                        
                     } else {
                         
                         if let errorString = error!.userInfo["error"] as? String {
@@ -145,12 +146,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         if PFUser.currentUser() != nil{
-            //self.performSegueWithIdentifier("login", sender: self)
+            print("hello")
+            self.performSegueWithIdentifier("login", sender: self)
         }
     }
 
