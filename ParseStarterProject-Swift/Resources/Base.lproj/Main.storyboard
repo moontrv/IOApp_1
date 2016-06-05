@@ -138,11 +138,88 @@
                             <outlet property="delegate" destination="wvX-CK-wG0" id="A7O-F3-D0f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User List" id="NwU-wX-NQf"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="6aU-5w-edk"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="User List" id="NwU-wX-NQf">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="VDD-Qu-qjQ">
+                            <connections>
+                                <segue destination="1O9-RC-nky" kind="show" id="73x-sw-CjG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOi-xj-Y48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1297.5" y="300.5"/>
+        </scene>
+        <!--Post Image-->
+        <scene sceneID="S2c-i8-a6p">
+            <objects>
+                <viewController title="Post Image" id="1O9-RC-nky" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xIU-T9-UEr"/>
+                        <viewControllerLayoutGuide type="bottom" id="M2R-mF-rN2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFill" id="o4Y-YK-8EX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="0oJ-bU-Xgn">
+                                <rect key="frame" x="69" y="64" width="238" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="257" id="fLI-fy-f8O"/>
+                                    <constraint firstAttribute="width" constant="238" id="lIi-qO-ikz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rZ-7j-3yO">
+                                <rect key="frame" x="114" y="345" width="147" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="1xU-f1-BtT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Choose An Image"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-Em-dw0">
+                                <rect key="frame" x="21" y="397" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="tZD-B4-hAj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-rZ-Gf7">
+                                <rect key="frame" x="144" y="435" width="87" height="30"/>
+                                <color key="backgroundColor" red="0.072353877127170563" green="0.0016555534675717354" blue="0.99873250722885132" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="TF6-e6-mRK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Post Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cmr-Em-dw0" firstAttribute="top" secondItem="5rZ-7j-3yO" secondAttribute="bottom" constant="22" id="6Xb-kb-aMJ"/>
+                            <constraint firstItem="5rZ-7j-3yO" firstAttribute="centerX" secondItem="o4Y-YK-8EX" secondAttribute="centerX" id="8FQ-aE-paG"/>
+                            <constraint firstItem="cmr-Em-dw0" firstAttribute="centerX" secondItem="o4Y-YK-8EX" secondAttribute="centerX" id="BS4-OH-pzz"/>
+                            <constraint firstItem="0oJ-bU-Xgn" firstAttribute="top" secondItem="xIU-T9-UEr" secondAttribute="bottom" id="Hke-sk-anS"/>
+                            <constraint firstItem="cmr-Em-dw0" firstAttribute="leading" secondItem="o4Y-YK-8EX" secondAttribute="leadingMargin" constant="1" id="Qda-2V-H9l"/>
+                            <constraint firstItem="5rZ-7j-3yO" firstAttribute="top" secondItem="0oJ-bU-Xgn" secondAttribute="bottom" constant="24" id="Qlw-hd-k1I"/>
+                            <constraint firstItem="gNs-rZ-Gf7" firstAttribute="centerX" secondItem="o4Y-YK-8EX" secondAttribute="centerX" id="VUs-xU-PZd"/>
+                            <constraint firstItem="gNs-rZ-Gf7" firstAttribute="top" secondItem="cmr-Em-dw0" secondAttribute="bottom" constant="8" id="Vln-Mg-edc"/>
+                            <constraint firstItem="0oJ-bU-Xgn" firstAttribute="centerX" secondItem="o4Y-YK-8EX" secondAttribute="centerX" id="jLd-bU-1oD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cmr-Em-dw0" secondAttribute="trailing" constant="-1" id="r13-sv-1aX"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGa-6f-VJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.5" y="300.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0O1-9t-awQ">
@@ -161,4 +238,7 @@
             <point key="canvasLocation" x="718.5" y="300.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="manimage.png" width="450" height="450"/>
+    </resources>
 </document>
