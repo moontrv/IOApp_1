@@ -12,8 +12,9 @@ class TableViewController: UITableViewController {
     var userids = [""]
     var isFollowing = ["":false]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var refresher:UIRefreshControl!
+    
+    func refresh(){
         
         var query = PFUser.query()
         
@@ -60,6 +61,7 @@ class TableViewController: UITableViewController {
                                 if self.isFollowing.count == self.usernames.count {
                                     
                                     self.tableView.reloadData()
+                                    self.refresher.endRefreshing()
                                     
                                 }
                                 
@@ -72,16 +74,27 @@ class TableViewController: UITableViewController {
                     }
                     
                 }
-                
-                
-                
+                //dispatch_async(dispatch_get_main_queue(),{
+                //    self.tableView.reloadData()
+                //});
             }
             
-            
-            
         })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        refresher = UIRefreshControl()
         
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.tableView.addSubview(refresher)
+        
+        refresh()
+
     }
     
     override func didReceiveMemoryWarning() {
