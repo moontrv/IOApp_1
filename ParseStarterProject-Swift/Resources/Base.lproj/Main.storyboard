@@ -115,6 +115,73 @@
             </objects>
             <point key="canvasLocation" x="88.5" y="300.5"/>
         </scene>
+        <!--Feed Table View Controller-->
+        <scene sceneID="y7v-iO-5Ij">
+            <objects>
+                <tableViewController id="HD2-Q3-FKx" customClass="FeedTableViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="287" sectionHeaderHeight="28" sectionFooterHeight="28" id="bgx-KH-f0L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="287" id="QU8-8Q-i0k" customClass="cell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="287"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QU8-8Q-i0k" id="PxE-hV-rpJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sir-Lk-emf">
+                                            <rect key="frame" x="80" y="23" width="215" height="185"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="215" id="UrV-ip-iFI"/>
+                                                <constraint firstAttribute="height" constant="185" id="fPn-6g-1sg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO2-ZF-Lxq">
+                                            <rect key="frame" x="8" y="251" width="359" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4c-Yc-JbE">
+                                            <rect key="frame" x="8" y="222" width="359" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YO2-ZF-Lxq" firstAttribute="top" secondItem="g4c-Yc-JbE" secondAttribute="bottom" constant="18" id="2lG-zp-1ps"/>
+                                        <constraint firstItem="sir-Lk-emf" firstAttribute="top" secondItem="PxE-hV-rpJ" secondAttribute="topMargin" constant="15" id="4e6-cI-dlI"/>
+                                        <constraint firstItem="YO2-ZF-Lxq" firstAttribute="trailing" secondItem="PxE-hV-rpJ" secondAttribute="trailingMargin" id="C8G-6D-zbc"/>
+                                        <constraint firstItem="sir-Lk-emf" firstAttribute="leading" secondItem="PxE-hV-rpJ" secondAttribute="leadingMargin" constant="72" id="Cca-jC-I8I"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="sir-Lk-emf" secondAttribute="trailing" constant="72" id="Fc9-SN-SBd"/>
+                                        <constraint firstItem="g4c-Yc-JbE" firstAttribute="leading" secondItem="PxE-hV-rpJ" secondAttribute="leadingMargin" id="Ifh-9t-ckw"/>
+                                        <constraint firstItem="YO2-ZF-Lxq" firstAttribute="top" secondItem="g4c-Yc-JbE" secondAttribute="bottom" constant="18" id="JvU-Ja-Bi5"/>
+                                        <constraint firstItem="g4c-Yc-JbE" firstAttribute="trailing" secondItem="PxE-hV-rpJ" secondAttribute="trailingMargin" id="P5U-zu-VSg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="YO2-ZF-Lxq" secondAttribute="bottom" constant="14" id="ahD-2L-tso"/>
+                                        <constraint firstItem="YO2-ZF-Lxq" firstAttribute="leading" secondItem="PxE-hV-rpJ" secondAttribute="leadingMargin" id="alJ-Uf-hvU"/>
+                                        <constraint firstItem="g4c-Yc-JbE" firstAttribute="top" secondItem="sir-Lk-emf" secondAttribute="bottom" constant="6" id="uJf-sj-A8h"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="message" destination="YO2-ZF-Lxq" id="JPJ-zo-TWs"/>
+                                    <outlet property="postedImage" destination="sir-Lk-emf" id="oaM-2n-uzB"/>
+                                    <outlet property="username" destination="g4c-Yc-JbE" id="6gF-5T-1Mb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HD2-Q3-FKx" id="JQx-EK-hOq"/>
+                            <outlet property="delegate" destination="HD2-Q3-FKx" id="MbX-wT-KQ1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3X-pu-ph7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302.5" y="-423.5"/>
+        </scene>
         <!--User List-->
         <scene sceneID="h6X-8W-5LV">
             <objects>
@@ -142,6 +209,11 @@
                         <barButtonItem title="Item" id="6aU-5w-edk"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="User List" id="NwU-wX-NQf">
+                        <barButtonItem key="leftBarButtonItem" title="Feed" id="okT-HX-DEp">
+                            <connections>
+                                <segue destination="HD2-Q3-FKx" kind="show" id="Yph-GH-d0O"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="VDD-Qu-qjQ">
                             <connections>
                                 <segue destination="1O9-RC-nky" kind="show" id="73x-sw-CjG"/>

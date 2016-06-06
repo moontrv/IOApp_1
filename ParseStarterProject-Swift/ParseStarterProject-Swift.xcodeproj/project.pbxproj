@@ -20,6 +20,8 @@
 		AD2CE8FF1D041D4200A25CD1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2CE8FE1D041D4200A25CD1 /* TableViewController.swift */; };
 		AD2CE9011D0482AC00A25CD1 /* manimage.png in Resources */ = {isa = PBXBuildFile; fileRef = AD2CE9001D0482AC00A25CD1 /* manimage.png */; };
 		AD2CE9031D048F3A00A25CD1 /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2CE9021D048F3A00A25CD1 /* PostImageViewController.swift */; };
+		AD5096431D056A1800720050 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5096421D056A1800720050 /* FeedTableViewController.swift */; };
+		AD5096451D056A3500720050 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5096441D056A3500720050 /* cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		AD2CE8FE1D041D4200A25CD1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AD2CE9001D0482AC00A25CD1 /* manimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = manimage.png; sourceTree = "<group>"; };
 		AD2CE9021D048F3A00A25CD1 /* PostImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
+		AD5096421D056A1800720050 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		AD5096441D056A3500720050 /* cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				AD2CE8FE1D041D4200A25CD1 /* TableViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				AD5096421D056A1800720050 /* FeedTableViewController.swift */,
+				AD5096441D056A3500720050 /* cell.swift */,
 				AD2CE9021D048F3A00A25CD1 /* PostImageViewController.swift */,
 			);
 			path = ParseStarterProject;
@@ -194,7 +200,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2CE9031D048F3A00A25CD1 /* PostImageViewController.swift in Sources */,
+				AD5096451D056A3500720050 /* cell.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				AD5096431D056A1800720050 /* FeedTableViewController.swift in Sources */,
 				AD2CE8FF1D041D4200A25CD1 /* TableViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
