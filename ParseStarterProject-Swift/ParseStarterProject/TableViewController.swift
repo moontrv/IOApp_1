@@ -40,7 +40,7 @@ class TableViewController: UITableViewController {
                             
                             var query = PFQuery(className: "followers")
                             
-                            query.whereKey("follower", equalTo: PFUser.currentUser()!.objectId!)
+                            //query.whereKey("follower", equalTo: PFUser.currentUser()!.objectId!)
                             query.whereKey("following", equalTo: user.objectId!)
                             
                             query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
